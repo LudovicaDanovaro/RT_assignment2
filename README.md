@@ -76,7 +76,7 @@ and from the root directory of your ROS workspace run the command:
 
 
 
-# Improvment
+# Improvement
 The program has some flaws and in a future update, it would be possible to fix them and improve the code. The problems are:
 - If the desired position is exactly where an obstacle is, the robot will bump into the obstacle and sometimes flip over, trying to reach it. To avoid this behavior, the robot, when approaching the position, could recognize that the position is unreachable, stop in front of the obstacle and inform the user.
 - If the robot encounters an obstacle while moving to the desired position, it will go around it always in a clockwise way, sometimes getting further from the goal. To fix this, the robot could choose in which way it should go around the obstacle by choosing the one that will make him go closer to the desired position.
