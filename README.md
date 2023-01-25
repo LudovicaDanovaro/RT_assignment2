@@ -82,5 +82,3 @@ The program has some flaws and in a future update, it would be possible to fix t
 - If the robot encounters an obstacle while moving to the desired position, it will go around it always in a clockwise way, sometimes getting further from the goal. To fix this, the robot could choose in which way it should go around the obstacle by choosing the one that will make him go closer to the desired position.
 - It's not clear where the desired position is sometimes, so it would be nice to display a marker on the arena representing the goal.
 - Improve the node B, distance and average speed are not in real time and are not very accurate
-# Flowchart node_A
-![Blank diagram.pdf](https://github.com/boez98/RT1_assignment_2/files/10372052/Blank.diagram.pdf
