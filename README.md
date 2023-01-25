@@ -22,8 +22,6 @@ There are six nodes in the package:
 - `Service_NodeB.py` is the service node that, when called, prints the number of times a goal has been reached and the number of times a goal has been canceled
 -  `Pos_Vel_NodeC.py` is the node that subscribes to the robot’s position and velocity from the */position_velocity* topic as a custom message and prints the distance of the robot from the target and the robot’s average speed with a frequency setted as a parameter in the lauch file
 
-![rosgraph](https://user-images.githubusercontent.com/107572039/211221770-f5538c04-3884-4336-9099-b9ee421dbd1a.png)
-
 
 
 After the program has started, you can interact with four windows:
