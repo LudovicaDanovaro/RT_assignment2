@@ -47,10 +47,6 @@ and relaunch the program.
 
 
 # Installing and Running
--  First of all, you have to install **xterm**:
-
-       sudo apt install xterm
-
 - To install the module, you need to go inside the `src` folder of your ROS workspace and run the following command:
 
     git clone https://github.com/LudovicaDanovaro/RT_assignment2.git
