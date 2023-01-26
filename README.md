@@ -61,9 +61,9 @@ and from the root directory of your ROS workspace run the command:
       roscore 
 
 - To run the program, you need to have installed in your system the program **xterm**. To install it, run:
-
+'''
     sudo apt-get install xterm
-
+'''
 - to run the code, type the following command:
 
       roslaunch assignment_2_2022 assignment1.launch
