@@ -1,5 +1,21 @@
 #! /usr/bin/env python
 
+""" 
+ .. module:: Service_NodeB
+    :platform: Unix
+    :synopsis: This module creates a service that returns the number of goals cancelled and reached. 
+    It also subscribes to the topic */reaching_goal/result* to get the status of the result and increment the number of goals cancelled and reached.
+
+    .. moduleauthor:: *Ludovica Danovaro* S4811864@studenti.unige.it
+
+    Subscriber: 
+    /reaching_goal/result
+
+    Service:
+    /update_goals
+
+"""
+
 import rospy
 from geometry_msgs.msg import Point, Pose, Twist
 from sensor_msgs.msg import LaserScan
@@ -21,6 +37,15 @@ num_cancelled = 0;
 num_reached = 0;
 
 def callback(msg):
+
+    """
+    This function is called when a message is received by the subscriber. 
+    It increments the number of goals cancelled and reached depending on the status of the result.
+
+    Args:
+        msg (PlanningActionResult): The message received by the subscriber. It contains the status of the result.
+
+    """
     
     global num_cancelled, num_reached
 
@@ -40,13 +65,23 @@ def callback(msg):
         print("Goal reached")
 
 
-def update_goals(req):
+def update_goals(req):   
+
+    """
+    This function is called when the service is called. It returns the number of goals cancelled and reached.
+    """
 
     return GoalResponse(num_cancelled, num_reached)
 
 
 def main():
 
+    """
+    This function initializes the ROS node and creates the service and the subscriber.
+    */reaching_goal/result* is the topic where the action server publishes the status of the result.
+    */update_goals* is the service that returns the number of goals cancelled and reached.
+    
+    """
     # Initialize the node
     rospy.init_node('Service_NodeB_server')
 

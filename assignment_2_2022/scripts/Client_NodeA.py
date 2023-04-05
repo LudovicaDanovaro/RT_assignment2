@@ -1,5 +1,25 @@
 #! /usr/bin/env python
 
+""" 
+ .. module:: Client_NodeA
+    :platform: Unix
+    :synopsis: This module contains the code for the client node A. 
+    It creates a publisher to publish the custom message to the topic /position_velocity and a subscriber to subscribe to the topic /odom and call the callback function when a message is received. 
+    It also calls the action client.
+
+    .. moduleauthor:: *Ludovica Danovaro* S4811864@studenti.unige.it
+
+    Subscriber: 
+    /odom
+
+    Publisher: 
+    /position_velocity
+
+    Action Client:
+    /reaching_goal
+
+"""
+
 import rospy
 from geometry_msgs.msg import Point, Pose, Twist
 from sensor_msgs.msg import LaserScan
@@ -17,6 +37,14 @@ from assignment_2_2022.msg import Position_Velocity
 
 def callback(msg):
     
+    """
+    This function is called when a message is received by the subscriber.
+    It creates the custom message and publishes it to the topic /position_velocity.
+    
+    Args:
+        msg (Odometry): The message received by the subscriber. It contains the position and the linear velocity of the robot.
+    
+    """
     global pub
 
     # Get the position and the linear velocity from the message
@@ -34,6 +62,15 @@ def callback(msg):
     pub.publish(pos_vel)
 
 def action_Client():
+
+    """
+    This function creates the action client and sends the goal to the action server. 
+    It also waits for the action server to be up and running.
+
+    Args:
+        None
+
+    """
 
     # Create the action client
     client = actionlib.SimpleActionClient('/reaching_goal', assignment_2_2022.msg.PlanningAction)
@@ -69,6 +106,16 @@ def action_Client():
 
 
 def main():
+
+    """
+    This function initializes the ROS node, creates the publisher and the subscriber and calls the action client.
+
+    */odom* is the topic where the robot publishes its position and linear velocity.
+    */position_velocity* is the topic where the client node publishes the custom message.
+
+    The position and the linear velocity are passed as a nav_msgs/Odometry message.
+    
+    """
 
     global pub
 
